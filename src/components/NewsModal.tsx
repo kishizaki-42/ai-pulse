@@ -1,30 +1,8 @@
-import { useEffect } from 'react';
-import { X, ExternalLink, Rocket, Zap, Layers, Calendar, Globe2, Sparkles } from 'lucide-react';
+import { useEffect, useRef, useCallback } from 'react';
+import { X, ExternalLink, Calendar, Globe2, Sparkles } from 'lucide-react';
 import type { NewsArticle } from '../types/news';
-
-const categoryConfig = {
-  Model: {
-    label: 'MODEL',
-    icon: Rocket,
-    gradient: 'from-rose-500 to-pink-600',
-    bg: 'bg-rose-500/10',
-    text: 'text-rose-400',
-  },
-  Service: {
-    label: 'SERVICE',
-    icon: Zap,
-    gradient: 'from-amber-500 to-orange-600',
-    bg: 'bg-amber-500/10',
-    text: 'text-amber-400',
-  },
-  Other: {
-    label: 'OTHER',
-    icon: Layers,
-    gradient: 'from-zinc-400 to-zinc-600',
-    bg: 'bg-zinc-500/10',
-    text: 'text-zinc-400',
-  },
-};
+import { categoryConfig } from '../constants/categories';
+import { formatDate } from '../utils/formatDate';
 
 interface NewsModalProps {
   article: NewsArticle;
@@ -36,48 +14,98 @@ export function NewsModal({ article, onClose }: NewsModalProps) {
   const Icon = config.icon;
   const isHighImportance = article.importance === 'high';
 
-  const formattedDate = new Date(article.publishedAt).toLocaleDateString('ja-JP', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  const modalRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previousActiveElement = useRef<Element | null>(null);
 
-  // Handle escape key
+  // Focus trap and keyboard handling
   useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+    // Store previously focused element
+    previousActiveElement.current = document.activeElement;
+
+    // Focus close button on mount
+    closeButtonRef.current?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+        return;
+      }
+
+      // Focus trap
+      if (e.key === 'Tab' && modalRef.current) {
+        const focusableElements = modalRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey && document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement?.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement?.focus();
+        }
+      }
     };
-    document.addEventListener('keydown', handleEscape);
+
+    document.addEventListener('keydown', handleKeyDown);
     document.body.style.overflow = 'hidden';
 
     return () => {
-      document.removeEventListener('keydown', handleEscape);
+      document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'unset';
+      // Restore focus to previously focused element
+      if (previousActiveElement.current instanceof HTMLElement) {
+        previousActiveElement.current.focus();
+      }
     };
   }, [onClose]);
+
+  const handleBackdropClick = useCallback(
+    (e: React.MouseEvent) => {
+      if (e.target === e.currentTarget) {
+        onClose();
+      }
+    },
+    [onClose]
+  );
 
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
-      onClick={onClose}
+      onClick={handleBackdropClick}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
     >
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-md animate-fade-in" />
+      <div
+        className="absolute inset-0 bg-[var(--ink)]/60 backdrop-blur-sm animate-fade-in"
+        aria-hidden="true"
+      />
 
       {/* Modal */}
       <div
-        className="relative w-full max-w-2xl max-h-[85vh] bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl animate-scale-in"
+        ref={modalRef}
+        className="relative w-full max-w-2xl max-h-[85vh] bg-[var(--paper)] border border-[var(--border)] rounded-2xl overflow-hidden shadow-2xl animate-scale-in"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Gradient accent bar */}
-        <div className={`h-1 bg-gradient-to-r ${config.gradient}`} />
+        {/* Accent bar */}
+        <div
+          className={`h-1 ${config.cssClass}`}
+          aria-hidden="true"
+        />
 
         {/* Close button */}
         <button
+          ref={closeButtonRef}
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-zinc-800/80 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all"
+          aria-label="閉じる"
+          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-[var(--border-light)] hover:bg-[var(--border)] text-[var(--warm-gray)] hover:text-[var(--ink)] transition-all focus-ring"
         >
-          <X className="w-5 h-5" />
+          <X className="w-5 h-5" aria-hidden="true" />
         </button>
 
         {/* Scrollable content */}
@@ -86,45 +114,53 @@ export function NewsModal({ article, onClose }: NewsModalProps) {
           <div className="p-6 md:p-8 pb-4">
             {/* Meta row */}
             <div className="flex flex-wrap items-center gap-3 mb-4">
-              <div className={`
-                inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest
-                ${config.bg} ${config.text}
-              `}>
-                <Icon className="w-3.5 h-3.5" />
+              <div
+                className={`
+                  inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full
+                  text-xs font-bold uppercase tracking-widest
+                  ${config.cssClass} ${config.textColor}
+                `}
+              >
+                <Icon className="w-3.5 h-3.5" aria-hidden="true" />
                 {config.label}
               </div>
 
               {isHighImportance && (
-                <span className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-semibold">
-                  <Sparkles className="w-3 h-3" />
+                <span className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-[var(--accent-coral)]/10 text-[var(--accent-coral)] text-xs font-semibold">
+                  <Sparkles className="w-3 h-3" aria-hidden="true" />
                   重要ニュース
                 </span>
               )}
 
-              <span className="flex items-center gap-1.5 text-zinc-500 text-sm">
-                <Calendar className="w-3.5 h-3.5" />
-                {formattedDate}
+              <span className="flex items-center gap-1.5 text-[var(--warm-gray)] text-sm">
+                <Calendar className="w-3.5 h-3.5" aria-hidden="true" />
+                <time dateTime={article.publishedAt}>
+                  {formatDate(article.publishedAt, 'long')}
+                </time>
               </span>
             </div>
 
             {/* Title */}
-            <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight mb-4">
+            <h2
+              id="modal-title"
+              className="font-editorial text-2xl md:text-3xl font-bold text-[var(--ink)] leading-tight mb-4"
+            >
               {article.title}
             </h2>
 
             {/* Summary */}
-            <p className="text-lg text-zinc-300 leading-relaxed">
+            <p className="text-lg text-[var(--warm-gray)] leading-relaxed">
               {article.summary}
             </p>
           </div>
 
           {/* Divider */}
-          <div className="mx-6 md:mx-8 border-t border-zinc-800" />
+          <div className="mx-6 md:mx-8 border-t border-[var(--border)]" aria-hidden="true" />
 
           {/* Source section */}
           <div className="p-6 md:p-8 pt-6">
-            <h3 className="flex items-center gap-2 text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-4">
-              <Globe2 className="w-4 h-4" />
+            <h3 className="flex items-center gap-2 text-sm font-semibold text-[var(--warm-gray)] uppercase tracking-wider mb-4">
+              <Globe2 className="w-4 h-4" aria-hidden="true" />
               ソース
             </h3>
 
@@ -132,16 +168,19 @@ export function NewsModal({ article, onClose }: NewsModalProps) {
               href={article.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-4 py-3 bg-zinc-800/50 hover:bg-zinc-800 border border-zinc-700 hover:border-zinc-600 rounded-xl text-zinc-200 hover:text-white transition-all group"
+              className="inline-flex items-center gap-3 px-4 py-3 bg-[var(--cream)] hover:bg-[var(--border-light)] border border-[var(--border)] hover:border-[var(--warm-gray)] rounded-xl text-[var(--ink)] transition-all group focus-ring"
             >
-              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-zinc-700 to-zinc-800 flex items-center justify-center">
-                <Globe2 className="w-5 h-5 text-zinc-400" />
+              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--border-light)] flex items-center justify-center">
+                <Globe2 className="w-5 h-5 text-[var(--warm-gray)]" aria-hidden="true" />
               </div>
               <div className="flex-grow min-w-0">
                 <div className="font-medium truncate">{article.sourceName}</div>
-                <div className="text-xs text-zinc-500 truncate">{article.url}</div>
+                <div className="text-xs text-[var(--warm-gray)] truncate">{article.url}</div>
               </div>
-              <ExternalLink className="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors flex-shrink-0" />
+              <ExternalLink
+                className="w-4 h-4 text-[var(--warm-gray)] group-hover:text-[var(--accent-coral)] transition-colors flex-shrink-0"
+                aria-hidden="true"
+              />
             </a>
           </div>
         </div>

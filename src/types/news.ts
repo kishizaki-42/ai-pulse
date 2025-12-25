@@ -1,12 +1,14 @@
+import type { ArticleCategory, Importance } from '../constants/categories';
+
 export interface NewsArticle {
   id: string;              // YYYYMMDD-NNN
   title: string;
   url: string;
   sourceName: string;
-  category: 'Model' | 'Service' | 'Other';
+  category: ArticleCategory;
   publishedAt: string;     // ISO 8601
   summary: string;         // 100 文字程度
-  importance: 'high' | 'normal';
+  importance: Importance;
 }
 
 export interface NewsData {
