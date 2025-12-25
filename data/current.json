@@ -1,0 +1,145 @@
+{
+  "lastUpdated": "2025-12-25T12:00:00Z",
+  "news": [
+    {
+      "id": "20251225-001",
+      "title": "Sharing our compliance framework for California's Transparency in Frontier AI Act",
+      "url": "https://anthropic.com/news/compliance-framework-SB53",
+      "publishedAt": "2025-12-19T20:00:00Z",
+      "sourceName": "Anthropic News",
+      "category": "Other",
+      "importance": "normal",
+      "summary": "Anthropicがカリフォルニア州のFrontier AI法の透明性要件に対応するためのコンプライアンスフレームワークを公開。AI安全性と規制対応の取り組みを明確化した。"
+    },
+    {
+      "id": "20251225-002",
+      "title": "Working with the US Department of Energy to unlock the next era of scientific discovery",
+      "url": "https://anthropic.com/news/genesis-mission-partnership",
+      "publishedAt": "2025-12-18T19:30:00Z",
+      "sourceName": "Anthropic News",
+      "category": "Other",
+      "importance": "normal",
+      "summary": "Anthropicが米国エネルギー省と連携し、科学研究の新時代を開拓するプロジェクト「Genesis Mission」を発表。AI技術を活用した科学的発見の促進を目指す。"
+    },
+    {
+      "id": "20251225-003",
+      "title": "Protecting the well-being of our users",
+      "url": "https://anthropic.com/news/protecting-well-being-of-users",
+      "publishedAt": "2025-12-18T19:05:00Z",
+      "sourceName": "Anthropic News",
+      "category": "Other",
+      "importance": "normal",
+      "summary": "Anthropicがユーザーの健康と安全を保護するための新しい取り組みと安全対策について発表。AI利用における倫理的配慮と責任ある開発姿勢を強調。"
+    },
+    {
+      "id": "20251225-004",
+      "title": "Donating the Model Context Protocol and establishing the Agentic AI Foundation",
+      "url": "https://anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation",
+      "publishedAt": "2025-12-09T17:00:00Z",
+      "sourceName": "Anthropic News",
+      "category": "Service",
+      "importance": "high",
+      "summary": "AnthropicがModel Context Protocolをオープンソース化し、Agentic AI財団を設立。AIエージェントの標準化と業界全体の発展を推進する重要な発表。"
+    },
+    {
+      "id": "20251225-005",
+      "title": "Accenture and Anthropic launch multi-year partnership to move enterprises from AI pilots to production",
+      "url": "https://anthropic.com/news/anthropic-accenture-partnership",
+      "publishedAt": "2025-12-09T12:34:00Z",
+      "sourceName": "Anthropic News",
+      "category": "Other",
+      "importance": "normal",
+      "summary": "AnthropicとAccentureが複数年にわたるパートナーシップを締結。企業がAIパイロットプロジェクトから本格運用に移行するための支援を提供。"
+    },
+    {
+      "id": "20251225-006",
+      "title": "Introducing SAM Audio: The First Unified Multimodal Model for Audio Separation",
+      "url": "https://ai.meta.com/blog/sam-audio/",
+      "publishedAt": "2025-12-16T00:00:00Z",
+      "sourceName": "Meta AI Blog",
+      "category": "Model",
+      "importance": "high",
+      "summary": "MetaがSAM Audioを発表。テキスト、視覚的手がかり、時間セグメントなどの自然なマルチモーダルプロンプトを使用して音声分離を行う初の統合モデル。"
+    },
+    {
+      "id": "20251225-007",
+      "title": "How DINO and SAM are Helping Modernize Essential Medical Triage Practices",
+      "url": "https://ai.meta.com/blog/upenn-dino-sam-helping-medical-triage/",
+      "publishedAt": "2025-12-18T00:00:00Z",
+      "sourceName": "Meta AI Blog",
+      "category": "Other",
+      "importance": "normal",
+      "summary": "ペンシルベニア大学チームがMetaのDINOとSAMモデルを活用し、医療トリアージプロセスの自動化を実現。緊急医療対応の効率化に貢献。"
+    },
+    {
+      "id": "20251225-008",
+      "title": "The Universities Space Research Association Applies Segment Anything Model for Responding to Flood Emergencies",
+      "url": "https://ai.meta.com/blog/usra-sam-flood-emergencies/",
+      "publishedAt": "2025-12-18T00:00:00Z",
+      "sourceName": "Meta AI Blog",
+      "category": "Other",
+      "importance": "normal",
+      "summary": "大学宇宙研究協会（USRA）とMetaが協力し、洪水緊急時対応にSegment Anything Modelを適用。米国地質調査所の水観測システムを支援。"
+    },
+    {
+      "id": "20251225-009",
+      "title": "How Conservation X Labs Is Using Segment Anything Model 3 for Endangered Wildlife Monitoring",
+      "url": "https://ai.meta.com/blog/segment-anything-conservation-x-wildlife-monitoring/",
+      "publishedAt": "2025-11-24T00:00:00Z",
+      "sourceName": "Meta AI Blog",
+      "category": "Other",
+      "importance": "normal",
+      "summary": "Conservation X LabsがMetaのSegment Anything Model 3を使用して絶滅危惧野生動物のモニタリングを実施。環境保護活動の技術的支援に貢献。"
+    },
+    {
+      "id": "20251225-010",
+      "title": "ExecuTorch Adoption in Reality Labs: Powering On-Device AI Across Meta Devices",
+      "url": "https://ai.meta.com/blog/executorch-reality-labs-on-device-ai/",
+      "publishedAt": "2025-11-21T00:00:00Z",
+      "sourceName": "Meta AI Blog",
+      "category": "Service",
+      "importance": "normal",
+      "summary": "MetaのオープンソースAI推論エンジンExecuTorchがReality Labsで採用され、Meta全体のデバイスでオンデバイスAI機能を実現。"
+    },
+    {
+      "id": "20251225-011",
+      "title": "Can AI learn the language of biology to reimagine medicine?",
+      "url": "https://news.microsoft.com/signal/articles/can-ai-learn-the-language-of-biology-to-reimagine-medicine/",
+      "publishedAt": "2025-12-01T00:00:00Z",
+      "sourceName": "Microsoft AI Blog",
+      "category": "Other",
+      "importance": "normal",
+      "summary": "MicrosoftがAI技術による生物学の理解と医療革新の可能性について探求。生物学的データの解析と新薬開発へのAI応用を検討。"
+    },
+    {
+      "id": "20251225-012",
+      "title": "Startups can do more right now with AI: 5 insights from Microsoft CTO Kevin Scott",
+      "url": "https://news.microsoft.com/signal/?p=724",
+      "publishedAt": "2025-12-01T00:00:00Z",
+      "sourceName": "Microsoft AI Blog",
+      "category": "Other",
+      "importance": "normal",
+      "summary": "Microsoft CTO Kevin Scottがスタートアップ企業がAIを活用するための5つの重要な洞察を共有。AI導入の実践的アドバイスを提供。"
+    },
+    {
+      "id": "20251225-013",
+      "title": "From Signal magazine: How AI is reshaping the game on and off the court",
+      "url": "https://news.microsoft.com/signalmagazine/issue/issue-02/#slam-dunk",
+      "publishedAt": "2025-12-01T00:00:00Z",
+      "sourceName": "Microsoft AI Blog",
+      "category": "Other",
+      "importance": "normal",
+      "summary": "Microsoftが発行するSignal誌より、AIがスポーツ界に与える影響について分析。コート内外でのAI技術活用事例を紹介。"
+    },
+    {
+      "id": "20251225-014",
+      "title": "A race against time: Maharashtra police get an AI copilot to fight cybercrime",
+      "url": "https://news.microsoft.com/source/asia/features/a-race-against-time-maharashtra-police-get-an-ai-copilot-to-fight-cybercrime/",
+      "publishedAt": "2025-12-01T00:00:00Z",
+      "sourceName": "Microsoft AI Blog",
+      "category": "Service",
+      "importance": "normal",
+      "summary": "インド・マハラシュトラ州警察がサイバー犯罪対策にAIコパイロット技術を導入。法執行機関でのAI活用による犯罪捜査の効率化を実現。"
+    }
+  ]
+}

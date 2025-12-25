@@ -1,0 +1,24 @@
+{
+  "sources": [
+    {
+      "url": "https://openai.com/blog",
+      "sourceName": "OpenAI Blog"
+    },
+    {
+      "url": "https://www.anthropic.com/news",
+      "sourceName": "Anthropic News"
+    },
+    {
+      "url": "https://blog.google/technology/ai/",
+      "sourceName": "Google AI Blog"
+    },
+    {
+      "url": "https://ai.meta.com/blog/",
+      "sourceName": "Meta AI Blog"
+    },
+    {
+      "url": "https://blogs.microsoft.com/ai/",
+      "sourceName": "Microsoft AI Blog"
+    }
+  ]
+}
