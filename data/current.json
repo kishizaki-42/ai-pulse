@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-24T12:00:00Z",
+  "lastUpdated": "2025-12-26T21:15:00Z",
   "news": [
     {
       "id": "20251222-001",
@@ -299,6 +299,96 @@
       "category": "Other",
       "publishedAt": "2025-12-24T00:00:00Z",
       "summary": "【発表】心臓病関連重要タンパク質が発見された\n【意義】医学研究進展で疾患治療可能性拡大\n【ポイント】\n・発見成果\n・医学進展\n・治療応用",
+      "importance": "normal"
+    },
+    {
+      "id": "20250930-001",
+      "title": "Sora 2 is here",
+      "url": "https://openai.com/index/sora-2",
+      "sourceName": "OpenAI",
+      "category": "Model",
+      "publishedAt": "2025-09-30T00:00:00Z",
+      "summary": "【発表】Sora 2 が公開されました\n【意義】動画生成AI能力が向上し、より正確で制御可能に\n【ポイント】\n・より正確な動画生成\n・制御性向上\n・音声同期機能搭載",
+      "importance": "high"
+    },
+    {
+      "id": "20251115-001",
+      "title": "WeatherNext 2: Our most advanced weather forecasting model",
+      "url": "https://blog.google/technology/google-deepmind/weathernext-2",
+      "sourceName": "Google DeepMind",
+      "category": "Model",
+      "publishedAt": "2025-11-15T00:00:00Z",
+      "summary": "【発表】WeatherNext 2気象予報モデル発表\n【意義】AI気象予報精度向上で災害対策強化\n【ポイント】\n・気象予報AI\n・予測精度向上\n・防災応用",
+      "importance": "normal"
+    },
+    {
+      "id": "20251120-001",
+      "title": "Engineering more resilient crops for a warming climate",
+      "url": "https://blog.google/products/ai/engineering-more-resilient-crops-for-a-warming-climate",
+      "sourceName": "Google DeepMind",
+      "category": "Other",
+      "publishedAt": "2025-12-01T00:00:00Z",
+      "summary": "【発表】AI農業で気候変動対応作物開発\n【意義】AI応用で食料安全保障強化\n【ポイント】\n・AI農業応用\n・気候対応\n・食料保障",
+      "importance": "normal"
+    },
+    {
+      "id": "20250929-003",
+      "title": "Building agents with the Claude Agent SDK",
+      "url": "https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk",
+      "sourceName": "Anthropic Engineering",
+      "category": "Service",
+      "publishedAt": "2025-09-29T00:00:00Z",
+      "summary": "【発表】Claude Agent SDK でエージェント構築\n【意義】開発者向けSDK提供でエージェント開発加速\n【ポイント】\n・SDK提供\n・開発促進\n・エージェント普及",
+      "importance": "normal"
+    },
+    {
+      "id": "20251016-001",
+      "title": "Equipping agents for the real world with Agent Skills",
+      "url": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
+      "sourceName": "Anthropic Engineering",
+      "category": "Service",
+      "publishedAt": "2025-10-16T00:00:00Z",
+      "summary": "【発表】Agent Skillsで実世界エージェント化\n【意義】エージェントの実用性拡張で本格運用促進\n【ポイント】\n・Agent Skills\n・実世界対応\n・運用促進",
+      "importance": "normal"
+    },
+    {
+      "id": "20251020-001",
+      "title": "Beyond permission prompts: making Claude Code more secure",
+      "url": "https://www.anthropic.com/engineering/claude-code-sandboxing",
+      "sourceName": "Anthropic Engineering",
+      "category": "Service",
+      "publishedAt": "2025-10-20T00:00:00Z",
+      "summary": "【発表】Claude Codeのセキュリティ強化対策発表\n【意義】プロンプトインジェクション防止で安全性大幅向上\n【ポイント】\n・セキュリティ強化\n・権限制御\n・安全性向上",
+      "importance": "normal"
+    },
+    {
+      "id": "20251104-001",
+      "title": "Code execution with MCP: Building more efficient agents",
+      "url": "https://www.anthropic.com/engineering/code-execution-with-mcp",
+      "sourceName": "Anthropic Engineering",
+      "category": "Service",
+      "publishedAt": "2025-11-04T00:00:00Z",
+      "summary": "【発表】MCPでコード実行エージェント構築を効率化\n【意義】モデルコンテキストプロトコル統合で開発効率向上\n【ポイント】\n・MCP統合\n・コード実行\n・効率化",
+      "importance": "normal"
+    },
+    {
+      "id": "20251124-001",
+      "title": "Introducing advanced tool use on the Claude Developer Platform",
+      "url": "https://www.anthropic.com/engineering/advanced-tool-use",
+      "sourceName": "Anthropic Engineering",
+      "category": "Service",
+      "publishedAt": "2025-11-24T00:00:00Z",
+      "summary": "【発表】Claude開発者プラットフォームに高度なツール利用追加\n【意義】エージェント能力拡張で複雑タスク自動化可能に\n【ポイント】\n・ツール利用機能強化\n・開発者プラットフォーム\n・機能拡張",
+      "importance": "normal"
+    },
+    {
+      "id": "20251126-001",
+      "title": "Effective harnesses for long-running agents",
+      "url": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+      "sourceName": "Anthropic Engineering",
+      "category": "Service",
+      "publishedAt": "2025-11-26T00:00:00Z",
+      "summary": "【発表】長時間実行エージェント用フレームワーク発表\n【意義】エージェント信頼性向上で実運用適用拡大\n【ポイント】\n・コンテキストウィンドウ対応\n・エンジニア知見活用\n・実行安定性強化",
       "importance": "normal"
     }
   ]
